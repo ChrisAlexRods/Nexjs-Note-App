@@ -69,13 +69,16 @@ export default function Home() {
           ))}
         </div>
       </div>
-      <NoteForm
-        onSubmit={handleAddNote}
-        onUpdate={handleUpdateNote}
-        isEditing={isEditing}
-        note={editingNote}
-        onCancel={() => setIsEditing(false)}
-      />
+      <div className="footer">
+        <NoteForm
+          onSubmit={handleAddNote}
+          onUpdate={handleUpdateNote}
+          isEditing={isEditing}
+          note={editingNote}
+          onCancel={() => setIsEditing(false)}
+        />
+      </div>
     </div>
   );
+
 }
