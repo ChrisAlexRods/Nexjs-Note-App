@@ -75,3 +75,32 @@ body {
   left: 0;
   padding: 1rem;
 }
+
+/* Add dark mode styles */
+.dark-mode {
+  background-color: #333;
+  color: #f1f1f1;
+}
+
+.dark-mode .chalkboard {
+  background-color: #444;
+}
+
+.dark-mode .note {
+  background-color: #555;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .delete-btn {
+  background-color: #666;
+  color: #f1f1f1;
+}
+
+.dark-mode .note-form {
+  background-color: #444;
+}
+
+.dark-mode .note-form button {
+  background-color: #666;
+  color: #f1f1f1;
+}
