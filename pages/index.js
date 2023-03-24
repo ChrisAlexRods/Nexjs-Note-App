@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
 import NoteForm from "../components/NoteForm";
+import { useTheme } from "../contexts/themeContext";
 
 export default function Home() {
   const [notes, setNotes] = useState([]);
   const [editingNote, setEditingNote] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
+  const { darkMode, toggleDarkMode } = useTheme();
 
   useEffect(() => {
     fetch("/api/notes")
+
       .then((res) => res.json())
       .then(setNotes);
   }, []);
@@ -45,12 +48,16 @@ export default function Home() {
   };
 
   return (
-    <div className="wrapper">
+    <div className={`wrapper${darkMode ? ' dark-mode' : ''}`}>
       <div>
         <h1 className="text-center my-8">Note-taking App</h1>
+        <button onClick={toggleDarkMode}>
+          {darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+        </button>
         <div className="chalkboard">
           {notes.map((note) => (
             <div key={note.id} className="note-wrapper">
+
               <div className="note">
                 <p
                   className="note-content"
